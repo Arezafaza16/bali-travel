@@ -20,7 +20,7 @@ type AvailabilityState =
   | { status: 'unavailable'; message: string }
   | { status: 'error'; message: string };
 
-type BookingStep = 'form' | 'customer-info' | 'processing' | 'otp';
+type BookingStep = 'form' | 'customer-info' | 'processing' | 'waiting-otp' | 'otp';
 
 // ─── OTP Modal ────────────────────────────────────────────────────────────────
 function OtpModal({ otp, onClose }: { otp: string; onClose: () => void }) {
@@ -202,6 +202,7 @@ export default function ServiceDetailPage() {
   };
 
   const handlePaymentSuccess = useCallback(async (oid: string) => {
+    setStep('waiting-otp');
     let attempts = 0;
     const interval = setInterval(async () => {
       attempts++;
@@ -287,6 +288,17 @@ export default function ServiceDetailPage() {
       )}
       {step === 'otp' && otp && (
         <OtpModal otp={otp} onClose={() => { setStep('form'); setAvailability({ status: 'idle' }); }} />
+      )}
+      {step === 'waiting-otp' && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
+          <div className="bg-surface-container-lowest rounded-2xl p-8 max-w-sm w-full shadow-2xl text-center">
+            <span className="animate-spin material-symbols-outlined text-primary text-5xl mb-4" style={{ fontVariationSettings: "'FILL' 1" }}>progress_activity</span>
+            <h2 className="text-h2 text-primary mb-2 text-xl font-bold">Verifying Payment...</h2>
+            <p className="text-body-md text-on-surface-variant text-sm">
+              Please wait while we securely confirm your payment and generate your OTP. Do not close this page.
+            </p>
+          </div>
+        </div>
       )}
 
       <main className="pt-24 pb-section-padding">
