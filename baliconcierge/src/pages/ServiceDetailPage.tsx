@@ -26,7 +26,7 @@ type BookingStep = 'form' | 'customer-info' | 'processing' | 'waiting-otp' | 'ot
 function OtpModal({ otp, onClose }: { otp: string; onClose: () => void }) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
-      <div className="bg-surface-container-lowest rounded-2xl p-8 max-w-sm w-full shadow-2xl text-center">
+      <div className="bg-surface-container-lowest rounded-2xl p-8 max-w-md w-full shadow-2xl text-center">
         <div className="w-16 h-16 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
           <span className="material-symbols-outlined text-green-500 text-4xl" style={{ fontVariationSettings: "'FILL' 1" }}>
             check_circle
@@ -38,7 +38,7 @@ function OtpModal({ otp, onClose }: { otp: string; onClose: () => void }) {
         </p>
         <div className="bg-primary/5 border-2 border-dashed border-primary/30 rounded-xl p-6 mb-6">
           <p className="text-label-caps text-secondary text-xs mb-2 uppercase tracking-widest">Your Booking OTP</p>
-          <p className="text-6xl font-bold tracking-[0.3em] text-primary">{otp}</p>
+          <p className="text-5xl sm:text-6xl font-bold tracking-[0.2em] text-primary pl-[0.2em] break-all">{otp}</p>
         </div>
         <div className="flex items-center gap-2 justify-center text-amber-600 bg-amber-50 rounded-lg p-3 mb-6">
           <span className="material-symbols-outlined text-sm">photo_camera</span>
