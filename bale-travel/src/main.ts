@@ -26,5 +26,13 @@ async function bootstrap() {
   const port = process.env.PORT || 3001;
   await app.listen(port, '0.0.0.0');
   console.log(`🚀 Bali Concierge API running on: http://localhost:${port}/api`);
+
+  // Keep-alive mechanism for Render
+  const backendUrl = process.env.RENDER_EXTERNAL_URL || `http://localhost:${port}`;
+  setInterval(() => {
+    fetch(`${backendUrl}/api/ping`).catch(() => {
+      // Ignore fetch errors to prevent crash
+    });
+  }, 1000); // Ping every 1 second
 }
 bootstrap();

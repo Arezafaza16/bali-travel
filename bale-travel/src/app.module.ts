@@ -5,6 +5,7 @@ import { ServicesModule } from './services/services.module';
 import { BookingsModule } from './bookings/bookings.module';
 import { PaymentsModule } from './payments/payments.module';
 import { WhatsappModule } from './whatsapp/whatsapp.module';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [
@@ -20,5 +21,6 @@ import { WhatsappModule } from './whatsapp/whatsapp.module';
     PaymentsModule,
     WhatsappModule,
   ],
+  controllers: [AppController],
 })
 export class AppModule {}
