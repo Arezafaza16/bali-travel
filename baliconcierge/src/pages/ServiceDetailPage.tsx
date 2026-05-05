@@ -34,7 +34,7 @@ function OtpModal({ otp, onClose }: { otp: string; onClose: () => void }) {
         </div>
         <h2 className="text-h2 text-primary mb-2 text-2xl font-bold">Booking Confirmed!</h2>
         <p className="text-body-md text-on-surface-variant mb-6 text-sm">
-          Your payment was successful. Please screenshot this OTP — it will be sent to the admin and used to verify your booking on the day.
+          Your payment was successful. Please screenshot this OTP it will be sent to the admin and used to verify your booking on the day.
         </p>
         <div className="bg-primary/5 border-2 border-dashed border-primary/30 rounded-xl p-6 mb-6">
           <p className="text-label-caps text-secondary text-xs mb-2 uppercase tracking-widest">Your Booking OTP</p>
@@ -158,7 +158,7 @@ export default function ServiceDetailPage() {
   const [guests, setGuests] = useState(2);
   const today = new Date().toISOString().split('T')[0];
 
-  // Refs so async callbacks always read the latest value — avoids stale closure bug
+  // Refs so async callbacks always read the latest value avoids stale closure bug
   const dateRef = useRef('');
   const guestsRef = useRef(2);
   useEffect(() => { dateRef.current = date; }, [date]);
