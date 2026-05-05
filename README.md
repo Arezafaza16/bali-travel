@@ -38,10 +38,12 @@ MONGODB_URI=mongodb+srv://<user>:<pass>@cluster.mongodb.net/bali-concierge
 MIDTRANS_SERVER_KEY=SB-Mid-server-xxxxxxxxxxxx
 MIDTRANS_CLIENT_KEY=SB-Mid-client-xxxxxxxxxxxx
 MIDTRANS_IS_PRODUCTION=false
-ADMIN_WHATSAPP_NUMBER=628123456789      # no + or spaces
-WHATSAPP_API_KEY=your_callmebot_apikey
-PORT=3001
-FRONTEND_URL=http://localhost:3000
+FONNTE_TOKEN=your_fonnte_token
+ADMIN_WHATSAPP_NUMBER=your_whatsapp 
+# App
+PORT=your_port
+FRONTEND_URL=your_frontend_url
+
 ```
 
 ### Run in development
